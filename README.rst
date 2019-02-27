@@ -17,17 +17,28 @@ Serde-Ext
     :target: https://codecov.io/gh/rossmacarthur/serde-ext
     :alt: Code Coverage
 
-Extended classes and functions for use with
-`Serde <https://github.com/rossmacarthur/serde>`_.
+Extended classes and functions for use with Serde_.
 
 Getting started
 ---------------
 
-Install this package with
+Install this package as a Serde_ feature
 
 ::
 
-    pip install serde-ext
+    pip install serde[ext]
+
+
+The additional fields and validators provided will be re-exported
+
+.. code:: python
+
+    from serde import Model, fields
+
+    class Person(Model):
+        name = fields.Str()
+        email = fields.Email()
+        website = fields.Optional(fields.Url)
 
 
 View the latest usage and API documentation
@@ -37,3 +48,5 @@ License
 -------
 
 This project is licensed under the MIT License.
+
+.. _Serde: https://github.com/rossmacarthur/serde
